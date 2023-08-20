@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="left-section">
-        <Link to='/'>
+        <Link className="home-button" to='/'>
         <a href="#" className="home-button">
           Home
         </a>

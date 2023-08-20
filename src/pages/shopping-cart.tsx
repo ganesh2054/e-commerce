@@ -18,7 +18,7 @@ const ShoppingCartCard = () => {
 
     const [selectedItems,setSelectedItems]=useState<number[]>([])
    
-    cart?.products.map((item:CartItemType)=>{
+    cart?.products?.map((item:CartItemType)=>{
         if(selectedItems.includes(item?.id))
         {
             grandTotal=grandTotal+item.discountedPrice
@@ -62,7 +62,7 @@ const ShoppingCartCard = () => {
                     </thead>
                     <tbody>
                         {
-                            cart?.products.map((item:CartItemType)=>(
+                            cart?.products?.map((item:CartItemType)=>(
                                 <CartItem handleGrandTotal={handleGrandTotal} cartItem={item} />
     
                             ))
