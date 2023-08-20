@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #c54f4f;
+  }
+  
+  thead th {
+    background-color: #c54f4f;
+    color:white
+  }
+  
+  button {
+    margin: 0 4px;
+  }
+  .add-button{
+    background-color:#25a5d8;
+    color:white;
+    border:none;
+    cursor: pointer;
+  }
+  .checkout-btn{
+    background-color:#25a5d8;
+    color:white;
+    border:none;
+    height: 25px;
+    border-radius: 5px;
+    cursor:pointer
+  }
+  
+  .delete-icon{
+    color:orange
+  }
+  .delete-icon:hover{
+    color:red;
+    cursor:pointer;
+  }
