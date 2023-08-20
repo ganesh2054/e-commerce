@@ -12,10 +12,10 @@ export default function ProductCard({ product }: { product: ProductType }) {
     const discount = (price * discountPercentage) / 100
     const priceAfterDiscount = price - discount
     const cart = useSelector(selectCart)
-    const productInCart = cart?.cart?.products?.some(c => c?.id === id);
+    const productInCart = cart?.products?.some((c:{id:number}) => c?.id === id);
 
     const handleAddToCart = () => {
-        const cartItem: CartItemType = {}
+        const cartItem: CartItemType = {id:0,title:'',price:0,quantity:0,total:0,discountedPrice:0,discountPercentage:0}
         if (!productInCart || productInCart == undefined) {
             cartItem.id = id,
                 cartItem.title = title,

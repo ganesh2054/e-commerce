@@ -24,7 +24,7 @@ export default function Navbar() {
             <Icon icon="mdi:cart-outline" color='white' width="30" height="30" />
           </Link>
           <div className='cart-item-count'>
-            {cart?.cart?.totalQuantity ? cart.cart.totalQuantity : 0}
+            {cart?.totalQuantity ? cart.totalQuantity : 0}
           </div>
         </a>
       </div>

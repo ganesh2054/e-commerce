@@ -33,7 +33,7 @@ export default function CartItem({ cartItem,handleGrandTotal }:PropType) {
   const incrementItem = () => {
     if (product && typeof product.stock === 'number' &&product?.stock > qty) {
       const newQty = qty + 1
-      const cartItem: CartItemType = {}
+      const cartItem: CartItemType = {id:0,title:'',price:0,quantity:0,total:0,discountedPrice:0,discountPercentage:0}
       cartItem.id=id
       cartItem.quantity = newQty,
       cartItem.total = price * newQty,
@@ -48,7 +48,7 @@ export default function CartItem({ cartItem,handleGrandTotal }:PropType) {
     if(qty>1)
     {    
       const newQty = qty - 1
-      const cartItem: CartItemType = {}
+      const cartItem: CartItemType = {id:0,title:'',price:0,quantity:0,total:0,discountedPrice:0,discountPercentage:0}
       cartItem.id=id
       cartItem.quantity = newQty,
       cartItem.total = price * newQty,
@@ -62,7 +62,7 @@ export default function CartItem({ cartItem,handleGrandTotal }:PropType) {
   const handleRemove=()=>{
     dispatch(removeItem(id))
   }
-  const handleItemSelection=(e)=>{
+  const handleItemSelection=(e: React.ChangeEvent<HTMLInputElement>)=>{
   if(e.target.checked)
   {
     handleGrandTotal(true,id)

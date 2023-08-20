@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { cart as handleCart } from '../api/cart/cart';
 import {CartType } from '../type/type';
 import { addToCart } from '../api/cart/addItems';
+import { RootState } from '../app/store';
 interface CartState {
     cart: CartType;
     loading: boolean;
@@ -33,7 +34,7 @@ export const cartSlice = createSlice({
     initialState,
     extraReducers: (builder) => {
 
-        builder.addCase(getCart.pending, (state, action) => {
+        builder.addCase(getCart.pending, (state) => {
             state['loading'] = true;
             state['error'] = false;
             state['errorMsg'] = '';
@@ -100,7 +101,7 @@ export const cartSlice = createSlice({
         }
     }
 })
-export const selectCart = (state:CartState) => state.cart
+export const selectCart = (state:RootState) => state.cart.cart
 export const selectProductCount = (state:CartState) => state.cart.totalQuantity
 export const { addItem, incrementQuantity, decrementQuantity, removeItem } = cartSlice.actions;
 export default cartSlice.reducer;

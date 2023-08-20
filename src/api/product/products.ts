@@ -13,7 +13,7 @@ const products = async () => {
     const product=data.products
     return product
   } catch (err) {
-    throw new Error(err)
+    throw new Error()
   }
 }
 

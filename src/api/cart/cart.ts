@@ -5,7 +5,7 @@ const cart = async () => {
     const response = getFromStorage('cart')
     return response
   } catch (err) {
-    throw new Error(err)
+    throw new Error()
   }
 }
 

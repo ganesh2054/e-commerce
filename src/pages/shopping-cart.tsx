@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react';
 import Layout from '../components/layout';
-import '../style/cart-style.css'
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from '../features/cartSlice';
 import { getCart } from '../features/cartSlice';
 import { CartItemType} from '../type/type';
 import CartItem from '../components/cart-item';
 import { Link } from 'react-router-dom';
+import { AppDispatch } from '../app/store';
+import '../style/cart-style.css'
+
 
 const ShoppingCartCard = () => {
-    const dispatch=useDispatch()
+    const dispatch:AppDispatch=useDispatch()
     const cart=useSelector(selectCart)
     // const [grandTotal,setGrandTotal]=useState(0)
     let grandTotal=0
 
     const [selectedItems,setSelectedItems]=useState<number[]>([])
    
-    cart?.cart?.products.map((item:CartItemType)=>{
+    cart?.products.map((item:CartItemType)=>{
         if(selectedItems.includes(item?.id))
         {
             grandTotal=grandTotal+item.discountedPrice
@@ -43,7 +45,7 @@ const ShoppingCartCard = () => {
     return (
         <Layout>
             {
-                cart?.cart?.products?.length>0?
+                cart?.products?.length>0?
                 (<>
                     <table>
                     <thead>
@@ -60,7 +62,7 @@ const ShoppingCartCard = () => {
                     </thead>
                     <tbody>
                         {
-                            cart?.cart?.products.map((item:CartItemType)=>(
+                            cart?.products.map((item:CartItemType)=>(
                                 <CartItem handleGrandTotal={handleGrandTotal} cartItem={item} />
     
                             ))

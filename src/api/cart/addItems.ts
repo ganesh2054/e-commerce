@@ -5,7 +5,7 @@ const addToCart = async (product:CartType) => {
   try {
    saveToStorage('cart',product)
   } catch (err) {
-    throw new Error(err)
+    throw new Error()
   }
 }
 

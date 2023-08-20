@@ -1,6 +1,7 @@
 import { createSlice,createAsyncThunk } from '@reduxjs/toolkit';
 import { products as handleProducts } from '../api/product/products';
 import { ProductType } from '../type/type';
+import { RootState } from '../app/store';
 
 interface ProductState {
     product: ProductType[] | null;
@@ -24,7 +25,7 @@ export const productSlice = createSlice({
     initialState,
     extraReducers: (builder) => {
 
-        builder.addCase(getProducts.pending, (state, action) => {
+        builder.addCase(getProducts.pending, (state) => {
             state['loading'] = true;
             state['error'] = false;
             state['errorMsg'] = '';
@@ -43,7 +44,8 @@ export const productSlice = createSlice({
     },
     reducers:{}
 })
-export const  selectProductData=(state:ProductState)=>state.product
+
+export const  selectProductData=(state:RootState)=>state.product.product
 export default productSlice.reducer;
 
 
